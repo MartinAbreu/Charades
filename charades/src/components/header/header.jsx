@@ -1,10 +1,11 @@
 import React from "react";
+import logo from "../../images/CharadesLogo.png";
 
 import "./header.style.scss";
 
 const Header = () => (
   <div>
-    <h1>Charades</h1>
+    <img src={logo} alt="logo"></img>
   </div>
 );
 
