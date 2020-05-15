@@ -5,7 +5,7 @@ import "./header.style.scss";
 
 const Header = () => (
   <div>
-    <img src={logo} alt="logo"></img>
+    <img className="logo" src={logo} alt="logo"></img>
   </div>
 );
 
