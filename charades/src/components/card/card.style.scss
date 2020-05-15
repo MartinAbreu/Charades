@@ -1,0 +1,28 @@
+.card-container {
+  display: grid;
+  grid-row: 1fr 1fr;
+  width: 200px;
+  height: 300px;
+  border: 2px solid rgb(58, 57, 57);
+  border-radius: 8px;
+  -webkit-box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
+  box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
+
+  .difficulty {
+    height: 20%;
+    width: 100%;
+    border-bottom: 1px solid black;
+    background-color: rgb(54, 112, 179);
+    color: white;
+    font-size: 18px;
+  }
+
+  .word {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+}

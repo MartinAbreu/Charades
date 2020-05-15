@@ -3,10 +3,9 @@ import React from "react";
 import "./card.style.scss";
 
 const Card = ({ word }) => (
-  <div>
-    <div className="card-container">
-      <span>{word}</span>
-    </div>
+  <div className="card-container">
+    <span className="difficulty">Easy</span>
+    <span className="word">{word}</span>
   </div>
 );
 

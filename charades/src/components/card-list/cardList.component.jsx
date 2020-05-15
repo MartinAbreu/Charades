@@ -3,7 +3,7 @@ import Card from "../card/card.component";
 import "./cardList.style.scss";
 
 const CardList = ({ count }) => (
-  <div>
+  <div className="card-list">
     {count.map((count) => (
       <Card word={count} />
     ))}
