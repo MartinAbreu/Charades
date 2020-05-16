@@ -16,4 +16,3 @@ const Card = ({ word }) => (
 );
 
 export default Card;
-git
