@@ -1,6 +1,7 @@
 import React from "react";
 import CardList from "../../components/card-list/cardList.component";
 import WORD_LIST from "./words";
+import Timer from "../../components/timer/timer";
 
 import "./gamePage.style.scss";
 
@@ -30,7 +31,7 @@ class GamePage extends React.Component {
       <div>
         <CardList words={easyWords} {...wordList} />
         <div className="btn">
-          <button onClick="">Start Timer</button>
+          <Timer />
         </div>
       </div>
     );
