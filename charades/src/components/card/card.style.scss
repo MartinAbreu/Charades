@@ -3,11 +3,49 @@
   grid-row: 1fr 1fr;
   width: 200px;
   height: 300px;
-  border: 2px solid rgb(58, 57, 57);
-  border-radius: 8px;
-  -webkit-box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
-  box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
+  position: relative;
+
+  &:hover .front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover .back {
+    transform: rotateY(0deg);
+  }
+
+  .front img {
+    width: 80%;
+    justify-content: center;
+  }
+  .front,
+  .back {
+    display: grid;
+    grid-row: 1fr 1fr;
+    width: 200px;
+    height: 300px;
+    border: 2px solid rgb(58, 57, 57);
+    border-radius: 8px;
+    -webkit-box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
+    box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
+    box-sizing: border-box;
+
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .front,
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: transform 0.8s ease;
+  }
+  .back {
+    transform: rotateY(180deg);
+  }
 
   .difficulty {
     padding-top: 6px;
@@ -26,6 +64,7 @@
     align-items: center;
     justify-content: center;
     // color: rgb(86, 188, 252);
-    font-size: 28px;
+    font-size: 26px;
+    word-wrap: break-word;
   }
 }
