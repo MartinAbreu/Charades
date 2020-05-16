@@ -29,6 +29,9 @@ class GamePage extends React.Component {
     return (
       <div>
         <CardList words={easyWords} {...wordList} />
+        <div className="btn">
+          <button onClick="">Start Timer</button>
+        </div>
       </div>
     );
   }

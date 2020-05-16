@@ -7,7 +7,7 @@ const WORD_LIST = [
       "Hair Cut",
       "Sewing",
       "Playing Guitar",
-      "Painting your nails",
+      "Painting your lalala nails",
       "Ride a bike",
       "Putting on Makeup",
       "Swimming",
