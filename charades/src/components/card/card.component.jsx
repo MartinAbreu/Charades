@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../images/CharadesLogo.png";
+import invertLogo from "../../images/inverted.png.png";
 
 import "./card.style.scss";
 
@@ -10,7 +10,7 @@ const Card = ({ word }) => (
       <span className="word">{word}</span>
     </div>
     <div className="front">
-      <img className="frontTitle" src={logo} alt="logo"></img>
+      <img className="frontTitle" src={invertLogo} alt="logo"></img>
     </div>
   </div>
 );

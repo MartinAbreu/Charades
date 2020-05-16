@@ -17,6 +17,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: #46b4eb;
 
     .frontTitle {
       width: 100%;
@@ -33,7 +34,7 @@
     grid-row: 1fr 1fr;
     width: 200px;
     height: 300px;
-    border: 2px solid rgb(58, 57, 57);
+    border: 2px solid white;
     border-radius: 8px;
     -webkit-box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 17px 25px 39px -20px rgba(0, 0, 0, 0.75);
