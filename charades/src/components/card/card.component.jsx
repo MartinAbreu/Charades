@@ -3,7 +3,9 @@ import invertLogo from "../../images/inverted.png.png";
 
 import "./card.style.scss";
 
-const Card = ({ word }) => (
+const Card = ({ word }) => {
+
+  return (
   <div className="card-container">
     <div className="back">
       <span className="difficulty">Easy</span>
@@ -13,6 +15,6 @@ const Card = ({ word }) => (
       <img className="frontTitle" src={invertLogo} alt="logo"></img>
     </div>
   </div>
-);
+)};
 
 export default Card;
