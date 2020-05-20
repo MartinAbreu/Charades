@@ -3,6 +3,7 @@ import invertLogo from "../../images/inverted.png.png";
 
 import "./card.style.scss";
 import WORD_LIST from "../../pages/game/words";
+import Timer from "../timer/timer";
 
 class Card extends React.Component {
   constructor() {
@@ -14,6 +15,7 @@ class Card extends React.Component {
       mediumHidden: false,
       hardHidden: false,
       currentState: false,
+      timerCounter: 20,
     };
   }
 
@@ -23,7 +25,13 @@ class Card extends React.Component {
   };
 
   render() {
-    const { wordList, easyHidden, mediumHidden, hardHidden } = this.state;
+    const {
+      wordList,
+      easyHidden,
+      mediumHidden,
+      hardHidden,
+      timerCounter,
+    } = this.state;
 
     //Randomly get words from array
     const easyWords = wordList[0].words
@@ -41,11 +49,16 @@ class Card extends React.Component {
       .splice(0, 1)
       .slice(0, 1);
 
+    let count = 0;
+
     return (
       <div className="container">
         <button
           className="easyBtn btn"
-          onClick={() => this.toggleClass("easyHidden")}
+          onClick={() => {
+            this.toggleClass("easyHidden");
+            this.setState({ timerCounter: 19 });
+          }}
         >
           Easy
         </button>

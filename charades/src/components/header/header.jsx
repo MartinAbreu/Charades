@@ -7,7 +7,7 @@ import Timer from "../timer/timer";
 const Header = () => (
   <div className="header">
     <img className="logo" src={logo} alt="logo"></img>
-    <Timer />
+    <Timer count={55} />
   </div>
 );
 
