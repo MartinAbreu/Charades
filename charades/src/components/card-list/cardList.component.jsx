@@ -2,14 +2,14 @@ import React from "react";
 import Card from "../card/card.component";
 import "./cardList.style.scss";
 
-const CardList = ({ words }) => (
+const CardList = ({ cardCount }) => (
   <div className="card-list">
-    {words
-      .filter((word, inx) => inx < 4)
-      .map((word) => (
-        <Card key={word} word={word} />
+    {cardCount
+      .filter((count, inx) => inx < 4)
+      .map((count) => (
+        <Card />
       ))}
-    {console.log(words)}
+    {console.log(cardCount)}
   </div>
 );
 

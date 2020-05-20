@@ -83,6 +83,9 @@ const WORD_LIST = [
       "Reading a Newspaper",
       "Funnybone",
       "Michael Jackson",
+      "Sky Diving",
+      "Using a treadmil",
+      "Taking a selfie",
     ],
   },
 ];
