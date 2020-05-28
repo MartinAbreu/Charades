@@ -7,9 +7,8 @@ const CardList = ({ cardCount }) => (
     {cardCount
       .filter((count, inx) => inx < 4)
       .map((count) => (
-        <Card />
+        <Card key={count} />
       ))}
-    {console.log(cardCount)}
   </div>
 );
 

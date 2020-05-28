@@ -1,7 +1,6 @@
 import React from "react";
 import CardList from "../../components/card-list/cardList.component";
 import WORD_LIST from "./words";
-import Easy from "../../components/buttons/easyButton.component";
 
 import "./gamePage.style.scss";
 import Header from "../../components/header/header";
