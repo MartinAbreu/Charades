@@ -1,30 +1,75 @@
 import React from "react";
 import CardList from "../../components/card-list/cardList.component";
-import WORD_LIST from "./words";
 
 import "./gamePage.style.scss";
 import Header from "../../components/header/header";
+import Timer from "../../components/timer/timer";
 
 class GamePage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      wordList: WORD_LIST,
+      counter: 60,
+      difficultyClicked: false,
+      cardListKey: 0,
+      updateCard: false,
     };
   }
 
-  render() {
-    const { wordList } = this.state;
-    //Randomly get words from array
-    const cardCount = wordList[0].words
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 4);
+  changeHandler = (timerCount) => {
+    switch (true) {
+      case timerCount != null:
+        this.setState({ counter: timerCount });
+        break;
+      default:
+        return null;
+    }
+  };
 
+  difficultyHandler = (difficultyClicked) => {
+    switch (true) {
+      case difficultyClicked:
+        this.setState({ difficultyClicked: difficultyClicked });
+        break;
+      default:
+        return null;
+    }
+  };
+
+  startOverHandler = (startOver) => {
+    switch (true) {
+      case startOver:
+        this.setState({
+          cardListKey: this.state.cardListKey + 1,
+          updateCard: true,
+          counter: 60,
+          difficultyClicked: false,
+        });
+        break;
+      default:
+        return null;
+    }
+  };
+
+  render() {
     return (
       <div>
-        <Header />
-        <CardList cardCount={cardCount} />
+        <div className="header-logo">
+          <Header />
+          <Timer
+            changeParentCounter={this.changeHandler}
+            difficultyClicked={this.state.difficultyClicked}
+            startOver={this.startOverHandler}
+          />
+        </div>
+        <CardList
+          key={this.state.cardListKey}
+          counter={this.state.counter}
+          reset={this.state.resetCard}
+          difficultyClicked={this.difficultyHandler}
+          cardUpdate={this.state.updateCard}
+        />
       </div>
     );
   }

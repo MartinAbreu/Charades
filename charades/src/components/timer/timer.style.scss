@@ -1,27 +1,87 @@
 .start,
 .reset {
-  border: none;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 3px;
   text-decoration: none;
   font-size: 30px;
   font-family: "Bangers", cursive;
   background-color: none;
+  padding: 5px 20px;
+  outline: none;
   cursor: pointer;
 }
 
 .green {
-  color: purple;
+  color: #66e062;
+}
+
+.yellow {
+  color: #dcee3a;
+}
+
+.orange {
+  color: #eead34;
+}
+
+.red {
+  color: #eb5353;
 }
 
 .start {
-  margin-left: -10px;
+  background-color: #bdf564;
 }
 
-.countdown {
-  font-size: 38px;
-  margin-bottom: 15px;
+.reset {
+  background-color: #f75a5a;
 }
 
-.buttons {
-  margin-left: 150px;
-  margin-top: 65px;
+.pulse {
+  animation: pulse 1s infinite;
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.timer-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .countdown-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .countdown {
+      font-size: 72px;
+    }
+  }
+
+  .button-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1.5);
+    text-shadow: 0 0 7px rgba(107, 106, 106, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
 }

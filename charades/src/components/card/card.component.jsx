@@ -1,12 +1,15 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import invertLogo from "../../images/inverted.png.png";
+import EasyWord from "../words/easyWords";
+import MediumWord from "../words/mediumWords";
+import HardWord from "../words/hardWords";
 
 import "./card.style.scss";
 import WORD_LIST from "../../pages/game/words";
 
-class Card extends React.Component {
-  constructor() {
-    super();
+class Card extends PureComponent {
+  constructor(props) {
+    super(props);
 
     this.state = {
       wordList: WORD_LIST,
@@ -24,51 +27,65 @@ class Card extends React.Component {
     this.setState({ wordList: WORD_LIST, [e]: !currentState });
   };
 
+  cardHasBeenClicked = (e) => {
+    switch (true) {
+      case e:
+        return this.props.cardDiffClicked(true);
+      default:
+        return this.props.cardDiffClicked(false);
+    }
+  };
+
   render() {
-    const { wordList, easyHidden, mediumHidden, hardHidden } = this.state;
-
-    //Randomly get words from array
-    const easyWords = wordList[0].words
-      .sort(() => 0.5 - Math.random())
-      .splice(0, 1)
-      .slice(0, 1);
-
-    const mediumWords = wordList[1].words
-      .sort(() => 0.5 - Math.random())
-      .splice(0, 1)
-      .slice(0, 1);
-
-    const hardWords = wordList[2].words
-      .sort(() => 0.5 - Math.random())
-      .splice(0, 1)
-      .slice(0, 1);
+    const { easyHidden, mediumHidden, hardHidden } = this.state;
 
     return (
       <div className="container">
         <div className="btn-container">
           <button
-            className={`btn ${this.state.buttonDisable ? "disableBtn" : null}`}
+            className={`btn Easy ${
+              this.state.buttonDisable ? "disableBtn" : null
+            }`}
             onClick={() => {
               this.toggleClass("easyHidden");
-              this.setState({ setDifficulty: "Easy", buttonDisable: true });
+              this.setState({
+                wordList: WORD_LIST,
+                setDifficulty: "Easy",
+                buttonDisable: true,
+              });
+              this.cardHasBeenClicked(true);
             }}
           >
             Easy
           </button>
           <button
-            className={`btn ${this.state.buttonDisable ? "disableBtn" : null}`}
+            className={`btn Medium ${
+              this.state.buttonDisable ? "disableBtn" : null
+            }`}
             onClick={() => {
               this.toggleClass("mediumHidden");
-              this.setState({ setDifficulty: "Medium", buttonDisable: true });
+              this.setState({
+                wordList: WORD_LIST,
+                setDifficulty: "Medium",
+                buttonDisable: true,
+              });
+              this.cardHasBeenClicked(true);
             }}
           >
             Medium
           </button>
           <button
-            className={`btn ${this.state.buttonDisable ? "disableBtn" : null}`}
+            className={`btn Hard ${
+              this.state.buttonDisable ? "disableBtn" : null
+            }`}
             onClick={() => {
               this.toggleClass("hardHidden");
-              this.setState({ setDifficulty: "Hard", buttonDisable: true });
+              this.setState({
+                wordList: WORD_LIST,
+                setDifficulty: "Hard",
+                buttonDisable: true,
+              });
+              this.cardHasBeenClicked(true);
             }}
           >
             Hard
@@ -77,32 +94,24 @@ class Card extends React.Component {
         <hr />
         <div className="card-container">
           <div
-            className={`back ${
-              easyHidden || hardHidden || mediumHidden
-                ? "turnback"
-                : "backtrans"
-            }`}
+            className={`back ${!this.props.turn ? "turnback" : "backtrans"}`}
           >
             <span className={`difficulty ${this.state.setDifficulty}`}>
               {this.state.setDifficulty}
             </span>
             <div className="words">
               <span className={`word ${!easyHidden ? "hidden" : null}`}>
-                {easyWords}
+                <EasyWord />
               </span>
               <span className={`word ${!mediumHidden ? "hidden" : null}`}>
-                {mediumWords}
+                <MediumWord />
               </span>
               <span className={`word ${!hardHidden ? "hidden" : null}`}>
-                {hardWords}
+                <HardWord shouldCardUpdate={this.props.cardUpdate} />
               </span>
             </div>
           </div>
-          <div
-            className={`front ${
-              easyHidden || hardHidden || mediumHidden ? "turnfront" : null
-            }`}
-          >
+          <div className={`front ${!this.props.turn ? "turnfront" : null}`}>
             <img className="frontTitle" src={invertLogo} alt="logo"></img>
           </div>
         </div>

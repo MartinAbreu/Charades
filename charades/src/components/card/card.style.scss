@@ -1,14 +1,14 @@
 .container {
   .Easy {
-    background-color: #14f80c;
+    background-color: #bdf564;
   }
 
   .Medium {
-    background-color: #e1fa06;
+    background-color: #fdfd74;
   }
 
   .Hard {
-    background-color: red;
+    background-color: #f75a5a;
   }
   .btn-container {
     display: flex;
@@ -16,7 +16,8 @@
     justify-content: center;
 
     .btn {
-      border: none;
+      border: 1px solid rgba(128, 128, 128, 0.5);
+      border-radius: 3px;
       text-decoration: none;
       font-size: 24px;
       font-family: "Bangers", cursive;
@@ -25,12 +26,17 @@
       &:hover {
         cursor: pointer;
       }
+
+      &:nth-last-of-type(2) {
+        margin: 0 5px;
+      }
     }
 
     .disableBtn {
       pointer-events: none;
       text-decoration: line-through;
       color: rgba(128, 128, 128, 0.5);
+      background-color: white;
       outline: none;
     }
   }
@@ -53,11 +59,16 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      background-color: #46b4eb;
+      background-color: #83ceeb;
 
       .frontTitle {
         width: 100%;
       }
+    }
+
+    .back {
+      background-image: url("../../images/Clogo.png");
+      background-color: #f5f5f5;
     }
 
     .backtrans {

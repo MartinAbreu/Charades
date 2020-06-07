@@ -1,6 +1,29 @@
-.card-list {
+.card-list-wrap {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+
+  .span-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    span {
+      font-size: 18px;
+    }
+
+    hr {
+      width: 200px;
+    }
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
