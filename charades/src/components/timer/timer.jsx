@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "../../components/timer/timer.style.scss";
-import buzzer from "./Buzzer.mp3";
+import gameOver from "./game_over.mp3";
+import clockTicking from "./clock_ticking.mp3";
 
 const Timer = ({ changeParentCounter, difficultyClicked, startOver }) => {
   const [counter, setCounter] = useState();
@@ -14,7 +15,14 @@ const Timer = ({ changeParentCounter, difficultyClicked, startOver }) => {
   }, [counter]);
 
   const buzzAlert = (e) => {
-    if (e === 0) return <audio src={buzzer} autoPlay />;
+    switch (true) {
+      case e === 0:
+        return <audio src={gameOver} autoPlay />;
+      case e > 0:
+        return <audio src={clockTicking} autoPlay loop />;
+      default:
+        return null;
+    }
   };
 
   const colorClassChange = (count) => {
