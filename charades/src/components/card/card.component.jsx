@@ -19,7 +19,7 @@ class Card extends PureComponent {
       currentState: false,
       setDifficulty: "",
       buttonDisable: false,
-      cardClicked: false,
+      cardClicked: true,
     };
   }
 
@@ -100,9 +100,7 @@ class Card extends PureComponent {
         <hr />
         <div className="card-container">
           <div
-            className={`back ${
-              !this.props.turn || cardClicked ? "turnback" : "backtrans"
-            }`}
+            className={`back ${!this.props.turn ? "turnback" : "backtrans"}`}
           >
             <span className={`difficulty ${this.state.setDifficulty}`}>
               {this.state.setDifficulty}
@@ -119,11 +117,7 @@ class Card extends PureComponent {
               </span>
             </div>
           </div>
-          <div
-            className={`front ${
-              !this.props.turn || cardClicked ? "turnfront" : null
-            }`}
-          >
+          <div className={`front ${!this.props.turn ? "turnfront" : null}`}>
             <img className="frontTitle" src={invertLogo} alt="logo"></img>
           </div>
         </div>

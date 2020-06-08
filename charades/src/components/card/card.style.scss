@@ -1,14 +1,26 @@
 .container {
   .Easy {
     background-color: #bdf564;
+
+    &:hover {
+      background-color: rgb(71, 204, 71);
+    }
   }
 
   .Medium {
     background-color: #fdfd74;
+
+    &:hover {
+      background-color: rgb(214, 216, 69);
+    }
   }
 
   .Hard {
     background-color: #f75a5a;
+
+    &:hover {
+      background-color: rgb(199, 65, 65);
+    }
   }
   .btn-container {
     display: flex;

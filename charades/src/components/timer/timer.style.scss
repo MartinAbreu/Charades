@@ -9,6 +9,14 @@
   padding: 5px 20px;
   outline: none;
   cursor: pointer;
+
+  &.reset:hover {
+    background-color: rgb(199, 65, 65);
+  }
+
+  &.start:hover {
+    background-color: rgb(71, 204, 71);
+  }
 }
 
 .green {

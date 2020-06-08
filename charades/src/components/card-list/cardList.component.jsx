@@ -58,24 +58,22 @@ const CardList = ({ counter, difficultyClicked, cardUpdate }) => {
       <div className="card-list">
         <Card
           key={1}
-          turn={counter >= 60 ? true : false}
-          name={"card1"}
+          turn={counter >= 60 || counter <= 45 ? true : false}
           cardDiffClicked={cardOneHandler}
         />
         <Card
           key={2}
-          turn={counter >= 45 ? true : false}
-          card={"card2"}
+          turn={counter >= 60 || counter <= 30 ? true : false}
           cardDiffClicked={cardTwoHandler}
         />
         <Card
           key={3}
-          turn={counter >= 30 ? true : false}
+          turn={counter >= 60 || counter <= 15 ? true : false}
           cardDiffClicked={cardThreeHandler}
         />
         <Card
           key={4}
-          turn={counter >= 15 ? true : false}
+          turn={counter >= 60 || counter <= 0 ? true : false}
           cardDiffClicked={cardFourHandler}
         />
       </div>
