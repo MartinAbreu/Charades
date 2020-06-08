@@ -19,7 +19,6 @@ class Card extends PureComponent {
       currentState: false,
       setDifficulty: "",
       buttonDisable: false,
-      cardClicked: true,
     };
   }
 
@@ -27,11 +26,6 @@ class Card extends PureComponent {
     const { currentState } = this.state;
     this.setState({ wordList: WORD_LIST, [e]: !currentState });
   };
-
-  toggleOnCardClick() {
-    const currentState = this.state.cardClicked;
-    this.setState({ active: !currentState });
-  }
 
   cardHasBeenClicked = (e) => {
     switch (true) {
@@ -43,7 +37,7 @@ class Card extends PureComponent {
   };
 
   render() {
-    const { easyHidden, mediumHidden, hardHidden, cardClicked } = this.state;
+    const { easyHidden, mediumHidden, hardHidden } = this.state;
 
     return (
       <div className="container">
