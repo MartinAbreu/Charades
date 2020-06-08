@@ -1,4 +1,9 @@
 body {
   background-color: #daf1ff;
   font-family: "Bangers", cursive;
+  height: 100vh;
+}
+
+.App {
+  height: 100vh;
 }

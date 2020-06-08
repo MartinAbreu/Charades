@@ -19,6 +19,7 @@ class Card extends PureComponent {
       currentState: false,
       setDifficulty: "",
       buttonDisable: false,
+      cardClicked: false,
     };
   }
 
@@ -26,6 +27,11 @@ class Card extends PureComponent {
     const { currentState } = this.state;
     this.setState({ wordList: WORD_LIST, [e]: !currentState });
   };
+
+  toggleOnCardClick() {
+    const currentState = this.state.cardClicked;
+    this.setState({ active: !currentState });
+  }
 
   cardHasBeenClicked = (e) => {
     switch (true) {
@@ -37,7 +43,7 @@ class Card extends PureComponent {
   };
 
   render() {
-    const { easyHidden, mediumHidden, hardHidden } = this.state;
+    const { easyHidden, mediumHidden, hardHidden, cardClicked } = this.state;
 
     return (
       <div className="container">
@@ -94,7 +100,9 @@ class Card extends PureComponent {
         <hr />
         <div className="card-container">
           <div
-            className={`back ${!this.props.turn ? "turnback" : "backtrans"}`}
+            className={`back ${
+              !this.props.turn || cardClicked ? "turnback" : "backtrans"
+            }`}
           >
             <span className={`difficulty ${this.state.setDifficulty}`}>
               {this.state.setDifficulty}
@@ -107,11 +115,15 @@ class Card extends PureComponent {
                 <MediumWord />
               </span>
               <span className={`word ${!hardHidden ? "hidden" : null}`}>
-                <HardWord shouldCardUpdate={this.props.cardUpdate} />
+                <HardWord />
               </span>
             </div>
           </div>
-          <div className={`front ${!this.props.turn ? "turnfront" : null}`}>
+          <div
+            className={`front ${
+              !this.props.turn || cardClicked ? "turnfront" : null
+            }`}
+          >
             <img className="frontTitle" src={invertLogo} alt="logo"></img>
           </div>
         </div>

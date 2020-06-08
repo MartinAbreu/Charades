@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
   margin-top: 20px;
+  z-index: 2;
 
   .span-wrap {
     display: flex;
