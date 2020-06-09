@@ -54,7 +54,7 @@ class GamePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="game-page-container">
         <div className="header-logo">
           <Header />
           <Timer
